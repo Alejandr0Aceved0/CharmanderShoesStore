@@ -7,9 +7,9 @@
 <!--app:startDestination=  funciona para configurar la vista que se carga de primero, en este caso nav_productos-->
     <fragment
         android:id="@+id/nav_productos"
-        android:name="com.example.tiendadezapatos.ui.home.HomeFragment"
+        android:name="com.example.tiendadezapatos.ui.productos.ProductosFragment"
         android:label="@string/menu_productos"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_productos" />
 
     <fragment
         android:id="@+id/nav_servicios"
