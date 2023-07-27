@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Charmander Shoes Shop</string>
+    <string name="nav_header_subtitle">Shoes on fire !!</string>
+    <string name="menu_productos">Products</string>
+    <string name="menu_servicios">Services</string>
+    <string name="menu_sucursales">Shops Points</string>
+    <string name="cerrar_sesion_txt">Log out</string>
+    <string name="nosotros_txt">About us</string>
+    <string name="carrito_de_compras_txt">Shop car</string>
+</resources>

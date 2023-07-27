@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Tienda de Zapatos Charmander</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="nav_header_title" translatable="false">Tienda de Zapatos Charmander</string>
+    <string name="nav_header_subtitle" translatable="false">Comodidad que quema</string>
+    <string name="nav_header_desc" translatable="false">Navigation header</string>
+
+    <string name="menu_productos">Productos</string>
+    <string name="menu_servicios">Servicios</string>
+    <string name="menu_sucursales">Sucursales</string>
+    <string name="cerrar_sesion_txt">Cerrar Sesión</string>
+    <string name="nosotros_txt">Nosotros</string>
+    <string name="carrito_de_compras_txt">Carrito de compras</string>
+</resources>

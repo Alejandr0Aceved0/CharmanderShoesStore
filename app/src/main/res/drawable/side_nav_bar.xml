@@ -1,0 +1,10 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:type="radial"
+        android:angle="90"
+        android:startColor="#DE5138"
+        android:centerColor="#DE5138"
+        android:endColor="#DE5138"
+        android:gradientRadius="800"/> <!-- El valor del gradienteRadius puede variar según tus preferencias -->
+</shape>
