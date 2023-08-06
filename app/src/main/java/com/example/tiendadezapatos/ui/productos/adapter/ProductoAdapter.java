@@ -1,5 +1,7 @@
 package com.example.tiendadezapatos.ui.productos.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tiendadezapatos.DetallesProductoActivity;
 import com.example.tiendadezapatos.R;
 import com.example.tiendadezapatos.ui.productos.model.ProductoModel;
 
@@ -53,7 +56,13 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
 
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(itemView.getContext(),"Producto seleccionado: " + String.valueOf(txtTituloProducto), Toast.LENGTH_SHORT).show();
+                    Context contexto = itemView.getContext();
+                    Intent intent = new Intent(contexto, DetallesProductoActivity.class);
+                    intent.putExtra("nombre", productos.get(posicion).getNombre());
+                    intent.putExtra("descripcion", productos.get(posicion).getDescripcion());
+                    intent.putExtra("imagen", productos.get(posicion).getImagen());
+                    intent.putExtra("precio", productos.get(posicion).getPrecio());
+                    contexto.startActivity(intent);
                 }
             });
         }
