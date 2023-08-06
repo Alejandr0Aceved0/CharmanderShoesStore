@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".DetallesProductoActivity">
+
+    <ImageView
+        android:id="@+id/imgDetalleProducto"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="25dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtNombreDetalleProducto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginVertical="5dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/txtDescripcionDetalleProducto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginVertical="5dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/txtPrecioDetalleProducto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginVertical="5dp"
+            android:text="TextView" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginVertical="5dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingVertical="5dp">
+
+        <Button
+            android:id="@+id/btnResCantidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/charmander_boarder_res_button"
+            android:text="-" />
+
+        <TextView
+            android:id="@+id/txtCantidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:text="0" />
+
+        <Button
+            android:id="@+id/btnSumCantidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/charmander_boarder_sum_button"
+            android:text="+" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnComprarProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginVertical="10dp"
+        android:background="@drawable/charmander_boarder_add_button"
+        android:paddingHorizontal="25dp"
+        android:text="Agregar Producto" />
+
+</LinearLayout>
