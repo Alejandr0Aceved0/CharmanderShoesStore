@@ -14,4 +14,12 @@
     <color name="centerColor">#fe9441</color>
     <color name="endColor">#de5138</color>
     <color name="startColor">#fbc204</color>
+
+
+    <color name="naranja_principal">#FF983F</color>
+    <color name="amarillo_oscuro">#E2A132</color>
+    <color name="amarillo_oscuro_secundario">#CC8C1F</color>
+    <color name="amarillo_claro">#FFCC49</color>
+    <color name="blanco">#FFFFFF</color>
+    <color name="negro">#000000</color>
 </resources>
