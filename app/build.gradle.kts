@@ -35,6 +35,7 @@ android {
 }
 
 dependencies {
+    implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
     implementation ("org.jetbrains.kotlin:kotlin-stdlib:1.8.10")
     implementation ("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.10")
     implementation("androidx.appcompat:appcompat:1.6.1")
