@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/nav_productos">
-<!--app:startDestination=  funciona para configurar la vista que se carga de primero, en este caso nav_productos-->
+    <!--app:startDestination=  funciona para configurar la vista que se carga de primero, en este caso nav_productos-->
     <fragment
         android:id="@+id/nav_productos"
         android:name="com.example.tiendadezapatos.ui.productos.ProductosFragment"
@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/nav_servicios"
-        android:name="com.example.tiendadezapatos.ui.gallery.GalleryFragment"
+        android:name="com.example.tiendadezapatos.ui.servicios.ServiciosFragment"
         android:label="@string/menu_servicios"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_servicios" />
 
     <fragment
         android:id="@+id/nav_sucursales"
-        android:name="com.example.tiendadezapatos.ui.slideshow.SlideshowFragment"
+        android:name="com.example.tiendadezapatos.ui.sucursales.SucursalesFragment"
         android:label="@string/menu_sucursales"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_sucursales" />
 </navigation>
