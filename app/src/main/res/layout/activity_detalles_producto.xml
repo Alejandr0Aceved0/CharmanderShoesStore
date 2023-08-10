@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".DetallesProductoActivity">
+    tools:context=".ui.productos.activities.DetallesProductoActivity">
 
     <ImageView
         android:id="@+id/imgDetalleProducto"

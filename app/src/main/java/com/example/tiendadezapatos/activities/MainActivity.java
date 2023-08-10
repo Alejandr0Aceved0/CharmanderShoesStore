@@ -67,20 +67,6 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    /*@Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) { //SE OBTIENE EL ITEM DE INTERACCION DEL USUARIO
-        int id = item.getItemId();
-        if (id == R.id.item_compras){
-            Toast.makeText(this, "CARRITO DE COMPRAS", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.item_nosotros) {
-            Toast.makeText(this, "ITEM NOSOTROS", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.item_cerrar_sesion){
-            Toast.makeText(this, "CERRAR SESION", Toast.LENGTH_SHORT).show();
-        }
-
-        return super.onOptionsItemSelected(item);
-    }*/
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();

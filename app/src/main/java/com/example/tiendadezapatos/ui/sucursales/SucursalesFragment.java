@@ -31,6 +31,12 @@ public class SucursalesFragment extends Fragment {
         sucursales.add(new SucursalModel(R.drawable.banner_1));
         sucursales.add(new SucursalModel(R.drawable.banner_2));
         sucursales.add(new SucursalModel(R.drawable.banner_3));
+        sucursales.add(new SucursalModel(R.drawable.banner_1));
+        sucursales.add(new SucursalModel(R.drawable.banner_2));
+        sucursales.add(new SucursalModel(R.drawable.banner_3));
+        sucursales.add(new SucursalModel(R.drawable.banner_1));
+        sucursales.add(new SucursalModel(R.drawable.banner_2));
+        sucursales.add(new SucursalModel(R.drawable.banner_3));
 
         recyclerViewSucursales = view.findViewById(R.id.recyclerViewSucursales);
         recyclerViewSucursales.setLayoutManager(new LinearLayoutManager(getContext()));

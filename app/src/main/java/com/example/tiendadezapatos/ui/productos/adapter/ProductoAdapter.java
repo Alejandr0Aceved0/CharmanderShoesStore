@@ -7,12 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.tiendadezapatos.DetallesProductoActivity;
+import com.example.tiendadezapatos.ui.productos.activities.DetallesProductoActivity;
 import com.example.tiendadezapatos.R;
 import com.example.tiendadezapatos.ui.productos.model.ProductoModel;
 
