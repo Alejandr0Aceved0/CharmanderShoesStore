@@ -1,13 +1,16 @@
-package com.example.tiendadezapatos;
+package com.example.tiendadezapatos.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.tiendadezapatos.R;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -36,6 +39,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        btnRegistro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                registrarUsuario();
+            }
+        });
+
     }
 
     private boolean verificarDatos() {
@@ -55,6 +65,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void iniciarSesion() {
-        Toast.makeText(getBaseContext(), "LOGEADO", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    private void registrarUsuario() {
+        Intent intent = new Intent(LoginActivity.this, RegistroActivity.class);
+        startActivity(intent);
     }
 }

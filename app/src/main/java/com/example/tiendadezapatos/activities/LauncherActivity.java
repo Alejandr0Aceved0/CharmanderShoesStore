@@ -1,4 +1,4 @@
-package com.example.tiendadezapatos;
+package com.example.tiendadezapatos.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,7 +18,7 @@ public class LauncherActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(LauncherActivity.this, LoginActivity.class);
+                Intent intent = new Intent(LauncherActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         }, 2000);
