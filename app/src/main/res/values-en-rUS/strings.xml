@@ -8,4 +8,5 @@
     <string name="cerrar_sesion_txt">Log out</string>
     <string name="nosotros_txt">About us</string>
     <string name="carrito_de_compras_txt">Shop car</string>
+    <string name="nav_agregar_producto">Agregar Producto</string>
 </resources>

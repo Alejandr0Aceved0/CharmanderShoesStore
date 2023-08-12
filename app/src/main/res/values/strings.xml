@@ -7,6 +7,7 @@
     <string name="nav_header_desc" translatable="false">Navigation header</string>
 
     <string name="menu_productos">Productos</string>
+    <string name="menu_agregar_productos">Agregar producto</string>
     <string name="menu_servicios">Servicios</string>
     <string name="menu_sucursales">Sucursales</string>
     <string name="cerrar_sesion_txt">Cerrar Sesión</string>
@@ -14,4 +15,5 @@
     <string name="carrito_de_compras_txt">Carrito de compras</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="nav_agregar_producto">Agregar Producto</string>
 </resources>

@@ -19,7 +19,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private String KEY_CORREO = "correo";
     private String KEY_PASS = "pass";
-    private String KEY_ROL = "rol";
+    private String KEY_ROL = "admin";
 
     EditText edCorreo, edContrasena;
     TextView txtOlvidoPass;
@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
             SharedPreferences.Editor editor = shared.edit();
             editor.putString(KEY_CORREO, correo);
             editor.putString(KEY_PASS, pass);
-            editor.putString(KEY_ROL, "rol");
+            editor.putString(KEY_ROL, "admin");
             editor.apply(); //.apply() guarda los datos seteados por putString
 
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);

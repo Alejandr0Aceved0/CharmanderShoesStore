@@ -1,6 +1,7 @@
 package com.example.tiendadezapatos.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,6 +23,14 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    private String ARCHIVO_SHARED_PREFERENCES = "DATOS_USUARIO";
+
+    private String KEY_CORREO = "correo";
+    private String KEY_PASS = "pass";
+    private String KEY_ROL = "admin";
+
+
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
 
@@ -42,15 +51,28 @@ public class MainActivity extends AppCompatActivity {
         });
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
+        //navigationView.getMenu().findItem(R.id.nav_agregar_producto).setVisible(false);//OCULTA UN MENU EN ESPECIFICO QUE QUERRAMOS OCULTAR
+
+        mostrarItemsPorRol(navigationView);
+
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_productos, R.id.nav_servicios, R.id.nav_sucursales)
+                R.id.nav_productos, R.id.nav_servicios, R.id.nav_sucursales, R.id.nav_agregar_producto)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+    }
+
+    private void mostrarItemsPorRol(NavigationView navigationView) {
+        SharedPreferences sharedPreferences = getSharedPreferences(ARCHIVO_SHARED_PREFERENCES, MODE_PRIVATE);
+        String rol = sharedPreferences.getString(KEY_ROL, null);
+
+        if (rol != null && rol.equals("admin")) {
+            navigationView.getMenu().findItem(R.id.nav_agregar_producto).setVisible(false);//OCULTA UN MENU EN ESPECIFICO QUE QUERRAMOS OCULTAR
+        }
+
     }
 
     @Override
