@@ -2,7 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!--  Es un condicional que vuelve como obligatorio el uso de la camara,
+     por lo tanto si el dispositivo no cuenta con camara, la apliacion no se verá disponible
+     para descargar en Google Play, en este caso es obligatorio con
+     android:required="true"
+      -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"

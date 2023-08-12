@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences(ARCHIVO_SHARED_PREFERENCES, MODE_PRIVATE);
         String rol = sharedPreferences.getString(KEY_ROL, null);
 
-        if (rol != null && rol.equals("admin")) {
+        if (rol != null && rol.equals("adminssss")) {
             navigationView.getMenu().findItem(R.id.nav_agregar_producto).setVisible(false);//OCULTA UN MENU EN ESPECIFICO QUE QUERRAMOS OCULTAR
         }
 
@@ -101,8 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "ITEM NOSOTROS", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.item_cerrar_sesion:
-                Intent intent   = new Intent(this, LoginActivity.class);
-                startActivity(intent);
+                cerrarSesion();
                 break;
             default:
                 return super.onOptionsItemSelected(item);
@@ -110,5 +109,15 @@ public class MainActivity extends AppCompatActivity {
 
 //        Toast.makeText(this, "ERROR DE SELECCION", Toast.LENGTH_SHORT).show();
         return true;
+    }
+
+    private void cerrarSesion() {
+        SharedPreferences sharedPreferences = getSharedPreferences(ARCHIVO_SHARED_PREFERENCES, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear().commit(); //BORRAMOS TODOS LOS DATOS DEL ARCHIVO ARCHIVO_SHARED_PREFERENCES
+
+        Toast.makeText(getApplicationContext(), "CERRASTE SESION", Toast.LENGTH_SHORT).show();
+        Intent intent   = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 }

@@ -1,14 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="25dp"
     tools:context=".ui.agregarProducto.AgregarProducto">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/imvTomarFotoProducto"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/charmander_shoes" />
+
+    <EditText
+        android:id="@+id/edNombreAgregarProducto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="Nombre de tu producto"
+        android:inputType="text" />
+
+    <MultiAutoCompleteTextView
+        android:id="@+id/multiDescripcionAgregarProducto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:hint="Descripcion de tu producto"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/edPrecioAgregarProducto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:hint="Precio de tu producto"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/btnAgregarProducto"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_btn_take_photo"
+        android:drawableRight="@drawable/ic_camera"
+        android:drawablePadding="12dp"
+        android:filterTouchesWhenObscured="true"
+        android:paddingHorizontal="25dp"
+        android:text="TOMAR FOTO"
+        android:textColor="@color/white" />
+
+</LinearLayout>
