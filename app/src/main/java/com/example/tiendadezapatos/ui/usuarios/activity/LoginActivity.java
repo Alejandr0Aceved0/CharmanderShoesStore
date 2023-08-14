@@ -1,4 +1,4 @@
-package com.example.tiendadezapatos.activities;
+package com.example.tiendadezapatos.ui.usuarios.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tiendadezapatos.R;
+import com.example.tiendadezapatos.activities.MainActivity;
 
 public class LoginActivity extends AppCompatActivity {
 

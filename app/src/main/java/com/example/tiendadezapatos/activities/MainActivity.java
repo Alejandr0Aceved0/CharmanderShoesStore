@@ -18,6 +18,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.tiendadezapatos.R;
 import com.example.tiendadezapatos.databinding.ActivityMainBinding;
+import com.example.tiendadezapatos.ui.usuarios.activity.LoginActivity;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -67,10 +68,16 @@ public class MainActivity extends AppCompatActivity {
 
     private void mostrarItemsPorRol(NavigationView navigationView) {
         SharedPreferences sharedPreferences = getSharedPreferences(ARCHIVO_SHARED_PREFERENCES, MODE_PRIVATE);
-        String rol = sharedPreferences.getString(KEY_ROL, null);
+        String rol = sharedPreferences.getString(KEY_ROL, "");
 
-        if (rol != null && rol.equals("adminssss")) {
-            navigationView.getMenu().findItem(R.id.nav_agregar_producto).setVisible(false);//OCULTA UN MENU EN ESPECIFICO QUE QUERRAMOS OCULTAR
+        if (rol != null) {
+            if (rol.equals("admin")) {
+                navigationView.getMenu().findItem(R.id.nav_agregar_producto).setVisible(true);//OCULTA UN MENU EN ESPECIFICO QUE QUERRAMOS OCULTAR
+            }else if (rol.equals("client")){
+                navigationView.getMenu().findItem(R.id.nav_agregar_producto).setVisible(false);//OCULTA UN MENU EN ESPECIFICO QUE QUERRAMOS OCULTAR
+            }else{
+                navigationView.getMenu().findItem(R.id.nav_agregar_producto).setVisible(false);//OCULTA UN MENU EN ESPECIFICO QUE QUERRAMOS OCULTAR
+            }
         }
 
     }
@@ -117,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         editor.clear().commit(); //BORRAMOS TODOS LOS DATOS DEL ARCHIVO ARCHIVO_SHARED_PREFERENCES
 
         Toast.makeText(getApplicationContext(), "CERRASTE SESION", Toast.LENGTH_SHORT).show();
-        Intent intent   = new Intent(this, LoginActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 }

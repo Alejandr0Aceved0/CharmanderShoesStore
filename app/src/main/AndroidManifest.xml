@@ -33,10 +33,10 @@
             android:exported="false"
             android:theme="@style/Theme.TiendaDeZapatos.NoActionBar" />
         <activity
-            android:name=".activities.RegistroActivity"
+            android:name=".ui.usuarios.activity.RegistroActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.LoginActivity"
+            android:name=".ui.usuarios.activity.LoginActivity"
             android:exported="false"
             android:theme="@style/Theme.TiendaDeZapatos.NoActionBar" />
         <activity

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.example.tiendadezapatos.R;
+import com.example.tiendadezapatos.ui.usuarios.activity.LoginActivity;
 
 public class LauncherActivity extends AppCompatActivity {
 
