@@ -14,12 +14,16 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.tiendadezapatos.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
 import java.util.TimeZone;
 
 public class RegistroActivity extends AppCompatActivity {
 
+
+    private  DatabaseReference mDatabase;
     EditText edNombre, edCorreo, edPass, edConfirmPass, edTelefono, edFechaCumpleanos;
     Button btnRegister;
 
@@ -27,6 +31,8 @@ public class RegistroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         edNombre = findViewById(R.id.edNombre);
         edCorreo = findViewById(R.id.edCorreo);
@@ -79,6 +85,11 @@ public class RegistroActivity extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             //TODO : llamar al endpoint o db para guardar usuario
+                            // Write a message to the database
+                            FirebaseDatabase database = FirebaseDatabase.getInstance();
+                            DatabaseReference myRef = database.getReference("message");
+
+                            myRef.setValue("Hello, World!");
 
                             Intent intent = new Intent(RegistroActivity.this, MainActivity.class);
                             startActivity(intent);

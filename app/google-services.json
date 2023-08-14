@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "491365085492",
+    "firebase_url": "https://charmandershoesshop-default-rtdb.firebaseio.com",
+    "project_id": "charmandershoesshop",
+    "storage_bucket": "charmandershoesshop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:491365085492:android:07caed133b4299ed3d7561",
+        "android_client_info": {
+          "package_name": "com.example.tiendadezapatos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "491365085492-i2rqv1vpof2ofqjeh1lbhpl4i4ris8f5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tiendadezapatos",
+            "certificate_hash": "ab66d4c35bee1eb90691a860176d9867d43e2bd8"
+          }
+        },
+        {
+          "client_id": "491365085492-s6r81enb2ru3qifcekp776iipv030i78.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxwNYwP3tjPdJWZwWWnBQpmfseAikhv-g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "491365085492-s6r81enb2ru3qifcekp776iipv030i78.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
