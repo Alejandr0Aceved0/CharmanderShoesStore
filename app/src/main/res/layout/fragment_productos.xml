@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.productos.ProductosFragment">
+    tools:context=".ui.productos.fragmentos.ProductoFragment">
 
 
     <com.denzcoskun.imageslider.ImageSlider

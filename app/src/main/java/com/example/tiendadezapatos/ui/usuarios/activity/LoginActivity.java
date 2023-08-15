@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.tiendadezapatos.R;
 import com.example.tiendadezapatos.activities.MainActivity;
+import com.example.tiendadezapatos.ui.productos.activities.DetallesProductoActivity;
 
 public class LoginActivity extends AppCompatActivity {
 

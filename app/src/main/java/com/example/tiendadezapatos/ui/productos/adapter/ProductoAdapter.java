@@ -59,7 +59,7 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
                     Intent intent = new Intent(contexto, DetallesProductoActivity.class);
                     intent.putExtra("nombre", productos.get(posicion).getNombre());
                     intent.putExtra("descripcion", productos.get(posicion).getDescripcion());
-                    intent.putExtra("imagen", productos.get(posicion).getImagen());
+                    intent.putExtra("imagen", productos.get(posicion).getUriImg());
                     intent.putExtra("precio", productos.get(posicion).getPrecio());
                     contexto.startActivity(intent);
                 }

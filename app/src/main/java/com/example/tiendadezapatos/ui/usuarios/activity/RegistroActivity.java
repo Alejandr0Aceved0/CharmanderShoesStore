@@ -107,14 +107,14 @@ public class RegistroActivity extends AppCompatActivity {
                             UsuarioModel usuarioModel = new UsuarioModel(nombre, correo, pass, fechaCumple, telefono, rol);
 
 
-                            Task<Void> respuesta = mDatabase.child("usuarios").push().setValue(usuarioModel);
+                            mDatabase.child("usuarios").push().setValue(usuarioModel);
 
                             //SE GUARDAN DATOS DE LOGIN EN ARCHIVOP XML
                             SharedPreferences shared = getSharedPreferences(ARCHIVO_SHARED_PREFERENCES, MODE_PRIVATE);
                             SharedPreferences.Editor editor = shared.edit();
                             editor.putString(KEY_CORREO, correo);
                             editor.putString(KEY_PASS, pass);
-                            editor.putString(KEY_ROL, "admin");
+                            editor.putString(KEY_ROL, "client");
                             editor.apply(); //.apply() guarda los datos seteados por putString
 
                             Intent intent = new Intent(RegistroActivity.this, MainActivity.class);

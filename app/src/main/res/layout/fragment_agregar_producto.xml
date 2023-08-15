@@ -6,7 +6,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="25dp"
-    tools:context=".ui.agregarProducto.AgregarProducto">
+    tools:context=".ui.productos.fragmentos.AgregarProductoFragment">
 
     <!-- TODO: Update blank fragment layout -->
 

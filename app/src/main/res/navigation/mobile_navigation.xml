@@ -7,13 +7,13 @@
     <!--app:startDestination=  funciona para configurar la vista que se carga de primero, en este caso nav_productos-->
     <fragment
         android:id="@+id/nav_productos"
-        android:name="com.example.tiendadezapatos.ui.productos.ProductosFragment"
+        android:name="com.example.tiendadezapatos.ui.productos.fragmentos.ProductoFragment"
         android:label="@string/menu_productos"
         tools:layout="@layout/fragment_productos" />
 
     <fragment
         android:id="@+id/nav_agregar_producto"
-        android:name="com.example.tiendadezapatos.ui.agregarProducto.AgregarProducto"
+        android:name="com.example.tiendadezapatos.ui.productos.fragmentos.AgregarProductoFragment"
         android:label="@string/menu_agregar_productos"
         tools:layout="@layout/fragment_agregar_producto" />
 
