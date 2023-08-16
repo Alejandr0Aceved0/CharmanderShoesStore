@@ -16,4 +16,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="nav_agregar_producto">Agregar Producto</string>
+
+
+    <!--  CONSTANTES  FIREBASE  -->
+    <string name="db_name_productos" translatable="false">productos</string>
+    <string name="db_name_usuarios" translatable="false">usuarios</string>
 </resources>

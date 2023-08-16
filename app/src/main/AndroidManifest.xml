@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
-    <!--  Es un condicional que vuelve como obligatorio el uso de la camara,
+    <!--
+     Es un condicional que vuelve como obligatorio el uso de la camara,
      por lo tanto si el dispositivo no cuenta con camara, la apliacion no se verá disponible
      para descargar en Google Play, en este caso es obligatorio con
      android:required="true"
-      -->
+    -->
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
@@ -24,6 +24,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TiendaDeZapatos"
         tools:targetApi="31">
+        <activity
+            android:name=".ui.productos.activities.ActualizarProducto"
+            android:exported="false"
+            android:theme="@style/Theme.TiendaDeZapatos.NoActionBar" />
         <activity
             android:name=".ui.sucursales.activities.DetallesSucursalesActivity"
             android:exported="false"

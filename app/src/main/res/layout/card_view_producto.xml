@@ -52,6 +52,34 @@
                 android:text="$30000"
                 android:textSize="12sp" />
 
+
+            <LinearLayout
+                android:id="@+id/lnOpcionesAdmin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+
+                <ImageButton
+                    android:id="@+id/imgBtnEliminarProducto"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="bottom"
+                    android:src="@drawable/ic_borrar_producto"
+                    android:layout_marginEnd="5dp"
+                    app:tint="@android:color/holo_red_light" />
+
+                <ImageButton
+                    android:id="@+id/imgBtnEditarProducto"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginHorizontal="5dp"
+                    android:src="@drawable/ic_editar_producto"
+                    app:tint="@color/black" />
+
+            </LinearLayout>
+
         </FrameLayout>
 
     </LinearLayout>

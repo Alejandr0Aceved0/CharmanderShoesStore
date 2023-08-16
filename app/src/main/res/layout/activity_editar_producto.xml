@@ -6,19 +6,17 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="25dp"
-    tools:context=".ui.productos.fragmentos.AgregarProductoFragment">
-
-    <!-- TODO: Update blank fragment layout -->
+    tools:context=".ui.productos.activities.ActualizarProducto">
 
     <ImageView
-        android:id="@+id/imvTomarFotoProducto"
+        android:id="@+id/imvEditarTomarFotoProducto"
         android:layout_width="220dp"
         android:layout_height="220dp"
         android:layout_marginTop="5dp"
         android:src="@drawable/charmander_shoes" />
 
     <EditText
-        android:id="@+id/edNombreAgregarProducto"
+        android:id="@+id/edNombreEditarProducto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -26,7 +24,7 @@
         android:inputType="text" />
 
     <MultiAutoCompleteTextView
-        android:id="@+id/multiDescripcionAgregarProducto"
+        android:id="@+id/multiDescripcionEditarProducto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -34,7 +32,7 @@
         android:inputType="text" />
 
     <EditText
-        android:id="@+id/edPrecioAgregarProducto"
+        android:id="@+id/edPrecioEditarProducto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -42,16 +40,16 @@
         android:inputType="number" />
 
     <Button
-        android:id="@+id/btnAgregarProducto"
+        android:id="@+id/btnEditarProducto"
         android:layout_width="wrap_content"
-        android:layout_gravity="center"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:background="@drawable/bg_btn_take_photo"
         android:drawablePadding="12dp"
         android:filterTouchesWhenObscured="true"
         android:paddingHorizontal="25dp"
-        android:text="Agregar producto"
+        android:text="Editar producto"
         android:textColor="@color/white" />
 
 </LinearLayout>

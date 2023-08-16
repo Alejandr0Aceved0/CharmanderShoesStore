@@ -65,7 +65,7 @@ public class ProductoFragment extends Fragment {
 
     private void mostrarProductos() {
         DatabaseReference productosResponse = mDatabase.child("productos");
-        productosResponse.addValueEventListener(new ValueEventListener() {//EventListener siginfica que se estará ejecutando e segundo plano, escuchando si se agregan o eliminan elementos en productos en Firebase
+        productosResponse.addValueEventListener(new ValueEventListener() {//EventListener significa que se estará ejecutando e segundo plano, escuchando si se agregan o eliminan elementos en productos en Firebase
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 //CAPTURA CAMBIOS EN EL DATABASE
@@ -73,7 +73,7 @@ public class ProductoFragment extends Fragment {
                 for (DataSnapshot childrenProductos : dataSnapshot.getChildren()){
                     System.out.println("NOS LLEGA ESTA DATA CHILDREN: "+ childrenProductos);
                     ProductoModel product = childrenProductos.getValue(ProductoModel.class);
-                    product.setId(dataSnapshot.getKey()); //ID DEL JSON OBJETO, COD ALEATORIO
+                    product.setId(childrenProductos.getKey()); //ID DEL JSON OBJETO, COD ALEATORIO
                     product.setImagen(R.drawable.zapato3);
                     productos.add(product);
                 }
