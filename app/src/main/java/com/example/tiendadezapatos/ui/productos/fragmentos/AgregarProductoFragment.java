@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+
 import com.example.tiendadezapatos.R;
 import com.example.tiendadezapatos.ui.productos.model.ProductoModel;
 import com.google.firebase.database.DatabaseReference;
@@ -27,7 +29,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class AgregarProductoFragment extends Fragment {
 
-    private final int CODE_INTENT_CAMERA = 10;
+    private final int CODE_INTENT_CAMERA = 11;
+    private final int CODE_INTENT_GALERIA = 12;
     private final int CODE_permission_CAMERA = 20;
     private DatabaseReference mDatabase;
 
@@ -69,16 +72,39 @@ public class AgregarProductoFragment extends Fragment {
     }
 
     private void tomarFotoProducto() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(getContext())
+                .setTitle("OBTENER IMAGEN")
+                .setMessage("¿De donde quiere tomar la foto?")
+                .setPositiveButton("Cámara", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //validar permiso de camara
+                        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+                            Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                            //startActivityForResult inicializa una intencion con un codigo identificado, llamado CODE_INTENT_CAMERA
+                            startActivityForResult(cameraIntent, CODE_INTENT_CAMERA);
+                        } else {
+                            //lanzamos venta para obtener el permiso de camara en caso de que la app no tenga dicho permiso de camara
+                            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA}, CODE_INTENT_CAMERA);
+                        }
+                    }
+                })
+                .setNegativeButton("Galeria", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //validar permiso de camara
+                        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+                                && ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                            Intent galeriaIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                            startActivityForResult(galeriaIntent, CODE_INTENT_GALERIA);
+                        } else {
+                            //lanzamos venta para obtener el permiso de camara en caso de que la app no tenga dicho permiso de camara
+                            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, CODE_INTENT_GALERIA);
+                        }
+                    }
+                });
+        alert.show();
 
-        //validar permiso de camara
-        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
-            Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            //startActivityForResult inicializa una intencion con un codigo identificado, llamado CODE_INTENT_CAMERA
-            startActivityForResult(cameraIntent, CODE_INTENT_CAMERA);
-        } else {
-            //lanzamos venta para obtener el permiso de camara en caso de que la app no tenga dicho permiso de camara
-            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA}, CODE_INTENT_CAMERA);
-        }
     }
 
     @Override
@@ -89,6 +115,10 @@ public class AgregarProductoFragment extends Fragment {
             case CODE_INTENT_CAMERA:
                 Bitmap miniatura = (Bitmap) data.getExtras().get("data");
                 imvTomarFotoProducto.setImageBitmap(miniatura);
+                break;
+            case CODE_INTENT_GALERIA:
+                Uri seleccionGaleria = data.getData();
+                imvTomarFotoProducto.setImageURI(seleccionGaleria);
                 break;
         }
     }
