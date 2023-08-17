@@ -38,11 +38,13 @@ android {
 }
 
 dependencies {
+    //PICASSO
+    implementation ("com.squareup.picasso:picasso:2.8")
     // Import the Firebase BoM
     implementation(platform("com.google.firebase:firebase-bom:32.2.2"))
     implementation(platform("com.google.firebase:firebase-analytics:21.3.0"))
     implementation(platform("com.google.firebase:firebase-database-ktx:20.2.2"))
-
+    implementation("com.google.firebase:firebase-storage-ktx")
 
     implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
     implementation ("org.jetbrains.kotlin:kotlin-stdlib:1.8.10")
