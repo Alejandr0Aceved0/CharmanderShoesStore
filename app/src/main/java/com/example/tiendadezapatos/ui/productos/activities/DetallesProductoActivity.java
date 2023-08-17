@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tiendadezapatos.R;
+import com.squareup.picasso.Picasso;
 
 public class DetallesProductoActivity extends AppCompatActivity {
 
@@ -62,12 +63,16 @@ public class DetallesProductoActivity extends AppCompatActivity {
         String nombre = datos.getString("nombre");
         String descripcion = datos.getString("descripcion");
         long precio = datos.getLong("precio");
-        int imagen = datos.getInt("imagen");
+        String imagen = datos.getString("imagen");
+
 
         txtNombre.setText(nombre);
         txtDescripcion.setText(descripcion);
         txtPrecio.setText(String.valueOf(precio));
-        imgDetalleProducto.setImageResource(imagen);
+        Picasso.get()
+                .load(imagen)
+                .error(R.drawable.poke_photo)
+                .into(imgDetalleProducto);
     }
 
     private void sumarCantidad() {
