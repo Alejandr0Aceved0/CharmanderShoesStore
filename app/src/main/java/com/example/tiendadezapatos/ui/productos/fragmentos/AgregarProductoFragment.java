@@ -15,7 +15,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.MultiAutoCompleteTextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
@@ -24,15 +26,25 @@ import androidx.fragment.app.Fragment;
 
 import com.example.tiendadezapatos.R;
 import com.example.tiendadezapatos.ui.productos.model.ProductoModel;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 public class AgregarProductoFragment extends Fragment {
 
     private final int CODE_INTENT_CAMERA = 11;
     private final int CODE_INTENT_GALERIA = 12;
     private final int CODE_permission_CAMERA = 20;
+
     private DatabaseReference mDatabase;
+    FirebaseStorage storage;
+
+    private String urlImage= null;
 
     EditText edNombreAgregarProducto, edPrecioAgregarProducto;
     MultiAutoCompleteTextView multiDescripcionAgregarProducto;
@@ -45,7 +57,8 @@ public class AgregarProductoFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_agregar_producto, container, false);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase = FirebaseDatabase.getInstance().getReference(); //BASE DE DATOS PLANO NO RELACION EN FORMATO JSON
+        storage = FirebaseStorage.getInstance("gs://charmandershoesshop.appspot.com");
 
         edNombreAgregarProducto = view.findViewById(R.id.edNombreAgregarProducto);
         edPrecioAgregarProducto = view.findViewById(R.id.edPrecioAgregarProducto);
@@ -116,9 +129,36 @@ public class AgregarProductoFragment extends Fragment {
                 Bitmap miniatura = (Bitmap) data.getExtras().get("data");
                 imvTomarFotoProducto.setImageBitmap(miniatura);
                 break;
+
             case CODE_INTENT_GALERIA:
-                Uri seleccionGaleria = data.getData();
-                imvTomarFotoProducto.setImageURI(seleccionGaleria);
+                assert data != null;
+                Uri urlSeleccionGaleria = data.getData();
+                imvTomarFotoProducto.setImageURI(urlSeleccionGaleria);
+
+                // Create a storage reference from our app
+                StorageReference storageRef = storage.getReference().child(getString(R.string.db_name_productos));
+                StorageReference riversRef = storageRef.child(urlSeleccionGaleria.getLastPathSegment());
+
+                UploadTask uploadTask = riversRef.putFile(urlSeleccionGaleria);
+                uploadTask.addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        // Handle unsuccessful uploads
+                    }
+                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Task<Uri> uri = taskSnapshot.getStorage().getDownloadUrl();
+
+                        uri.addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                System.out.println("DIRECCION DE FOTO ES:" + uri);
+                                urlImage = uri.toString();
+                            }
+                        });
+                    }
+                });
                 break;
         }
     }
@@ -144,11 +184,13 @@ public class AgregarProductoFragment extends Fragment {
         String nombre = edNombreAgregarProducto.getText().toString();
         String descripcion = multiDescripcionAgregarProducto.getText().toString();
         long precio = Long.parseLong(edPrecioAgregarProducto.getText().toString());
-        String urlImg = "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/0d265602-b5fa-46c1-8eb6-b3e56c7f52b9/calzado-air-jordan-1-mid-tXSJ73.png"; // a futuro se trae la imagen desde firebase
+        String urlImg = urlImage;
 
         ProductoModel productoModel = new ProductoModel(nombre, descripcion, precio, urlImg);
 
         mDatabase.child("productos").push().setValue(productoModel);
+
+        limpiarCampos();
     }
 
 
@@ -169,6 +211,19 @@ public class AgregarProductoFragment extends Fragment {
             return false;
         }
 
+        if (urlImage == null) {
+            Toast.makeText(getContext(), "FOTO OBLIGATORIA", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
         return true;
+    }
+
+    private void limpiarCampos(){
+        urlImage = null;
+        imvTomarFotoProducto.setImageResource(R.drawable.poke_photo);
+        edNombreAgregarProducto.setText(null);
+        multiDescripcionAgregarProducto.setText(null);
+        edPrecioAgregarProducto.setText(null);
     }
 }
