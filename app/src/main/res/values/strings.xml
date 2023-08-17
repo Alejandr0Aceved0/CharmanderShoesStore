@@ -20,5 +20,6 @@
 
     <!--  CONSTANTES  FIREBASE  -->
     <string name="db_name_productos" translatable="false">productos</string>
+    <string name="db_name_productos_firbase" translatable="false">productos</string>
     <string name="db_name_usuarios" translatable="false">usuarios</string>
 </resources>
