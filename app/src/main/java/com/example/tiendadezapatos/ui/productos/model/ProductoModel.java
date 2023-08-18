@@ -14,8 +14,21 @@ public class ProductoModel {
 
     private String uriImg;
 
-    public ProductoModel(){
+    private Integer cantidad;
 
+
+    private Integer idDb;
+
+    public ProductoModel() {
+    }
+
+    public ProductoModel(String idFirebase, String nombre, String descripcion, long precio, Integer cantidad, Integer idDb) {
+        this.id = idFirebase;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.cantidad = cantidad;
+        this.idDb = idDb;
     }
 
     public ProductoModel(String nombre, String descripcion, long precio, String uriImg) {
@@ -40,6 +53,23 @@ public class ProductoModel {
         this.imagen = imagen;
         this.uriImg = uriImg;
     }
+
+    public Integer getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(Integer cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public Integer getIdDb() {
+        return idDb;
+    }
+
+    public void setIdDb(Integer idDb) {
+        this.idDb = idDb;
+    }
+
 
     public String getNombre() {
         return nombre;

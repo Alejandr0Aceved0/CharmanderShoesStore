@@ -1,14 +1,17 @@
 package com.example.tiendadezapatos.ui.productos.activities;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tiendadezapatos.R;
+import com.example.tiendadezapatos.ui.productos.helper.DbHelper;
 import com.squareup.picasso.Picasso;
 
 public class DetallesProductoActivity extends AppCompatActivity {
@@ -18,6 +21,7 @@ public class DetallesProductoActivity extends AppCompatActivity {
     Button btnResCantidad, btnSumCantidad, btnAgregarProducto;
 
     int cantidad;
+    String idFirebase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +68,7 @@ public class DetallesProductoActivity extends AppCompatActivity {
         String descripcion = datos.getString("descripcion");
         long precio = datos.getLong("precio");
         String imagen = datos.getString("imagen");
-
+        idFirebase = datos.getString("idFirebase");
 
         txtNombre.setText(nombre);
         txtDescripcion.setText(descripcion);
@@ -82,13 +86,30 @@ public class DetallesProductoActivity extends AppCompatActivity {
 
     private void restarCantidad() {
         cantidad = Integer.parseInt(txtCantidad.getText().toString()) - 1;
-        if (cantidad < 0){
-         cantidad ++;
+        if (cantidad < 0) {
+            cantidad++;
         }
         txtCantidad.setText(String.valueOf(cantidad));
     }
 
     private void agregarProducto() {
-
+        if (cantidad >= 0) {
+            AlertDialog.Builder alert = new AlertDialog.Builder(this)
+                    .setTitle("Agregar producto")
+                    .setMessage("¿Está seguro de agregar " + cantidad + " productos a su carrito de compras?")
+                    .setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            DbHelper db = new DbHelper(getBaseContext());
+                            db.agregarProducto(txtNombre.getText().toString(),
+                                    txtDescripcion.getText().toString(),
+                                    Long.parseLong(txtPrecio.getText().toString()),
+                                    Integer.parseInt(String.valueOf(cantidad)),
+                                    idFirebase);
+                            DetallesProductoActivity.this.finish();
+                        }
+                    });
+            alert.show();
+        }
     }
 }
